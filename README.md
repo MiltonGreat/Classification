@@ -27,3 +27,17 @@ This dataset was curated with specific constraints: all patients are females of 
 ### Source:
 
 The dataset is publicly available and is widely used for educational and research purposes. It is often referred to as the "Pima Indians Diabetes Database" and can be found on platforms like Kaggle or the UCI Machine Learning Repository.
+
+### Overview of Models Selected
+
+1. Logistic Regression
+
+Serves as a baseline model for binary classification tasks, then optimized through hyperparameter tuning using GridSearchCV.
+
+2. Random Forest Classifier
+
+Random Forest Classifier generally provides high accuracy and good handling of unbalanced datasets without scaling requirements. It's good for benchmarking against Logistic Regression. Random Forest Classifier was applied directly with default settings and evaluated on the testing set.
+
+3. Support Vector Machine (SVM)
+
+SVM is effective for high-dimensional spaces and capable of defining complex higher-order separation planes through kernels. It is used with probability estimates enabled (probability=True) for binary classification. 
