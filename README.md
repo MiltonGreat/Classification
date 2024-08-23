@@ -27,5 +27,3 @@ This dataset was curated with specific constraints: all patients are females of 
 ### Source:
 
 The dataset is publicly available and is widely used for educational and research purposes. It is often referred to as the "Pima Indians Diabetes Database" and can be found on platforms like Kaggle or the UCI Machine Learning Repository.
-
-https://github.com/MiltonGreat/DiabetesClassification.git
