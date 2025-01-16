@@ -1,8 +1,10 @@
-# Classification
+# Diabetes Prediction Model
 
-### Project Summary
+### Overview
 
-The goal of this project is to build a predictive model to diagnose whether a patient has diabetes based on specific medical measurements. The outcome of this project could support healthcare professionals in making more informed decisions and early interventions for patients at risk of diabetes.
+This project aims to build a predictive model to diagnose whether a patient has diabetes based on specific medical measurements. The dataset used is the Pima Indians Diabetes Dataset, sourced from the National Institute of Diabetes and Digestive and Kidney Diseases.
+
+The predictive model leverages various machine learning techniques, including logistic regression with hyperparameter tuning, to achieve optimal performance. The implementation includes robust data preprocessing, feature selection, handling imbalanced datasets, and model evaluation.
 
 ### Problem Statement
 
@@ -24,20 +26,116 @@ The dataset used in this project is sourced from the National Institute of Diabe
 
 This dataset was curated with specific constraints: all patients are females of Pima Indian heritage, a population known to have a higher incidence of diabetes. The dataset will be used to build and evaluate different machine learning models to predict diabetes, with the aim of selecting the most effective model for this task.
 
+### Solution Approach
+
+1. Data Preprocessing
+- Handling Missing Values: Replaced zero values in Glucose, BloodPressure, SkinThickness, Insulin, and BMI with the median value of each column.
+- Feature Scaling: Standardized the features using StandardScaler to normalize data for better model performance.
+
+2. Handling Imbalanced Data
+- SMOTE (Synthetic Minority Oversampling Technique): Used SMOTE to balance the classes in the dataset by oversampling the minority class.
+
+3. Feature Selection
+- Selected features based on their correlation with the target variable (Outcome) using a correlation threshold of 0.1.
+
+4. Model Building and Hyperparameter Tuning
+
+Logistic Regression:
+- Tuned hyperparameters using GridSearchCV to find the best combination of regularization (C) and solver.
+
+Evaluation Metrics:
+- Accuracy
+- Precision, Recall, and F1 Score
+- ROC AUC Score
+
+5. Model Evaluation
+
+- Evaluated the model's performance on a test set using a confusion matrix and classification report.
+
+6. Saving the Model
+
+- Saved the best logistic regression model using the pickle library for future use.
+
+7. Prediction Demonstration
+
+- Provided a demonstration of predicting diabetes risk for a new patient using the trained model.
+
+1. Data Preprocessing
+
+Handling Missing Values: Replaced zero values in Glucose, BloodPressure, SkinThickness, Insulin, and BMI with the median value of each column.
+
+Feature Scaling: Standardized the features using StandardScaler to normalize data for better model performance.
+
+2. Handling Imbalanced Data
+
+SMOTE (Synthetic Minority Oversampling Technique): Used SMOTE to balance the classes in the dataset by oversampling the minority class.
+
+3. Feature Selection
+
+Selected features based on their correlation with the target variable (Outcome) using a correlation threshold of 0.1.
+
+4. Model Building and Hyperparameter Tuning
+
+Logistic Regression:
+
+Tuned hyperparameters using GridSearchCV to find the best combination of regularization (C) and solver.
+
+Evaluation Metrics:
+
+Accuracy
+
+Precision, Recall, and F1 Score
+
+ROC AUC Score
+
+5. Model Evaluation
+
+Evaluated the model's performance on a test set using a confusion matrix and classification report.
+
+6. Saving the Model
+
+Saved the best logistic regression model using the pickle library for future use.
+
+7. Prediction Demonstration
+
+Provided a demonstration of predicting diabetes risk for a new patient using the trained model.
+
+Installation
+
+To run this project, ensure you have the following libraries installed:
+
+pip install numpy pandas matplotlib seaborn scikit-learn imbalanced-learn xgboost
+
+How to Run the Project
+
+Clone the Repository
+
+git clone <repository_url>
+cd <repository_name>
+
+Place Dataset
+Ensure the dataset file diabetes.csv is located in the root directory of the project.
+
+Run the Script
+
+python diabetes_prediction.py
+
+Evaluate Results
+View the output metrics (accuracy, precision, recall, F1 score, ROC AUC) and the confusion matrix.
+
+Make Predictions
+Use the provided new_data example or input your own data to make predictions.
+
+### Results
+
+Best Model: Logistic Regression with tuned hyperparameters.
+
+Performance Metrics:
+- Accuracy: ~69%
+- ROC AUC Score: ~81%
+
 ### Source:
 
 The dataset is publicly available and is widely used for educational and research purposes. It is often referred to as the "Pima Indians Diabetes Database" and can be found on platforms like Kaggle or the UCI Machine Learning Repository.
 
-### Overview of Models Selected
-
-1. Logistic Regression
-
-Serves as a baseline model for binary classification tasks, then optimized through hyperparameter tuning using GridSearchCV.
-
-2. Random Forest Classifier
-
-Random Forest Classifier generally provides high accuracy and good handling of unbalanced datasets without scaling requirements. It's good for benchmarking against Logistic Regression. Random Forest Classifier was applied directly with default settings and evaluated on the testing set.
-
-3. Support Vector Machine (SVM)
-
-SVM is effective for high-dimensional spaces and capable of defining complex higher-order separation planes through kernels. It is used with probability estimates enabled (probability=True) for binary classification. 
+https://www.kaggle.com/datasets/mathchi/diabetes-data-set
